@@ -127,6 +127,7 @@ public class Conversation extends Thread {
                         break;
                     default:
                         printWriter.println("Invalid command!");
+                        handleUserMenu(printWriter, bufferedReader, authenticatedUser);
                 }
                 break;
             case "3":
@@ -245,6 +246,11 @@ public class Conversation extends Thread {
             printWriter.println("Content: " + post.getContent());
             printWriter.println("Likes: " + post.getLikes());
             printWriter.println("Comments: " + post.getComments().size());
+            printWriter.println("Comments: " );
+            for (Comment comment : post.getComments()) {
+                printWriter.println(comment.getUser().getName()+ ":" +comment.getContent());
+
+            }
             printWriter.println("Commands:");
             printWriter.println("1: Like this post");
             printWriter.println("2: Comment on this post");
@@ -266,6 +272,8 @@ public class Conversation extends Thread {
                 case "3":
                     // Return to posts list
                     printPostsList(printWriter);
+
+                    handleUserMenu(printWriter, bufferedReader, authenticatedUser);
                     break;
                 default:
                     printWriter.println("Invalid command!");
@@ -313,6 +321,7 @@ public class Conversation extends Thread {
                 printWriter.println("Content: " + post.getContent());
                 printWriter.println("Likes: " + post.getLikes());
                 printWriter.println("Comments: " + post.getComments().size());
+
                 printWriter.println("---------------");
             }
         }

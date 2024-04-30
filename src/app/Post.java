@@ -19,6 +19,17 @@ public class Post {
         this.likes = 0;
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", user=" + user +
+                ", content='" + content + '\'' +
+                ", comments=" + comments +
+                ", likes=" + likes +
+                '}';
+    }
+
     // Getters and setters
     public int getId() {
         return id;
